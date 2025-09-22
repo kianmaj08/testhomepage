@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>oberstufe.site - Schülerprojekte und Präsentationen</title>
+    <meta name="description" content="Zentrale Startseite für Schülerprojekte aus verschiedenen Fachbereichen. Experimentieren mit KI, Präsentationen und Website-Entwicklung.">
+    <meta name="keywords" content="Oberstufe, Schülerprojekte, Präsentationen, KI, Bildung, Philosophie, Geschichte, Kunst">
+    <meta name="author" content="oberstufe.site Team">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="oberstufe.site - Schülerprojekte">
+    <meta property="og:description" content="Zentrale Startseite für innovative Schülerprojekte aus verschiedenen Fachbereichen">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://oberstufe.site">
+    <meta property="og:image" content="https://oberstufe.site/assets/og-image.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="oberstufe.site - Schülerprojekte">
+    <meta name="twitter:description" content="Innovative Schülerprojekte aus verschiedenen Fachbereichen">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/assets/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "oberstufe.site",
+        "description": "Zentrale Startseite für Schülerprojekte und Präsentationen",
+        "url": "https://oberstufe.site",
+        "email": "oberstufesite@gmail.com",
+        "sameAs": [
+            "https://oberstufe.site"
+        ]
+    }
+    </script>
+
+    <style>
+        /* Modern CSS with Design System */
+        :root {
+            /* Color System */
+            --color-primary-50: #eff6ff;
+            --color-primary-100: #dbeafe;
+            --color-primary-500: #3b82f6;
+            --color-primary-600: #2563eb;
+            --color-primary-700: #1d4ed8;
+            --color-primary-900: #1e3a8a;
+
+            --color-gray-50: #f9fafb;
+            --color-gray-100: #f3f4f6;
+            --color-gray-200: #e5e7eb;
+            --color-gray-300: #d1d5db;
+            --color-gray-500: #6b7280;
+            --color-gray-700: #374151;
+            --color-gray-800: #1f2937;
+            --color-gray-900: #111827;
+
+            --color-success: #10b981;
+            --color-warning: #f59e0b;
+            --color-error: #ef4444;
+
+            /* Semantic Colors */
+            --bg-primary: var(--color-gray-50);
+            --bg-secondary: #ffffff;
+            --text-primary: var(--color-gray-900);
+            --text-secondary: var(--color-gray-700);
+            --text-muted: var(--color-gray-500);
+            --border-light: var(--color-gray-200);
+            --border-medium: var(--color-gray-300);
+
+            /* Subject Colors */
+            --subject-philosophie: #8b5cf6;
+            --subject-erdkunde: #10b981;
+            --subject-geschichte: #f59e0b;
+            --subject-physik: #374151;
+            --subject-kunst: #ec4899;
+            --subject-sowi: #8b5cf6;
+            --subject-deutsch: #ef4444;
+            --subject-sport: #3b82f6;
+            --subject-mathe: #6366f1;
+            --subject-chemie: #059669;
+            --subject-informatik: #7c3aed;
+
+            /* Spacing System */
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-5: 1.25rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            --space-20: 5rem;
+
+            /* Typography */
+            --font-family-base: 'Inter Variable', system-ui, -apple-system, sans-serif;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 1.875rem;
+            --font-size-4xl: 2.25rem;
+
+            --line-height-tight: 1.25;
+            --line-height-normal: 1.5;
+            --line-height-relaxed: 1.625;
+
+            /* Border Radius */
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+            /* Layout */
+            --container-max-width: 1280px;
+            --header-height: 4rem;
+        }
+
+        /* Dark mode */
+        [data-theme="dark"] {
+            --bg-primary: var(--color-gray-900);
+            --bg-secondary: var(--color-gray-800);
+            --text-primary: var(--color-gray-100);
+            --text-secondary: var(--color-gray-300);
+            --text-muted: var(--color-gray-500);
+            --border-light: var(--color-gray-700);
+            --border-medium: var(--color-gray-600);
+        }
+
+        /* Reset & Base Styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            line-height: var(--line-height-normal);
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Skip to main content */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--color-primary-600);
+            color: white;
+            padding: 8px;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            z-index: 1000;
+            transition: top var(--transition-fast);
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(10px);
+        }
+
+        .header__container {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-4);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: var(--header-height);
+        }
+
+        .header__logo {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            color: var(--color-primary-600);
+            text-decoration: none;
+        }
+
+        .header__nav {
+            display: flex;
+            gap: var(--space-6);
+            align-items: center;
+        }
+
+        .header__nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color var(--transition-fast);
+        }
+
+        .header__nav-link:hover,
+        .header__nav-link:focus {
+            color: var(--color-primary-600);
+            outline: none;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            padding: var(--space-2);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+        }
+
+        .theme-toggle:hover {
+            background: var(--color-gray-100);
+            color: var(--text-primary);
+        }
+
+        /* Main Content */
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-4);
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: var(--space-16) 0 var(--space-12);
+            text-align: center;
+        }
+
+        .hero__title {
+            font-size: var(--font-size-4xl);
+            font-weight: 800;
+            line-height: var(--line-height-tight);
+            margin-bottom: var(--space-6);
+            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero__subtitle {
+            font-size: var(--font-size-xl);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-8);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero__cta {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            background: var(--color-primary-600);
+            color: white;
+            padding: var(--space-3) var(--space-6);
+            border-radius: var(--radius-lg);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all var(--transition-fast);
+            box-shadow: var(--shadow-md);
+        }
+
+        .hero__cta:hover {
+            background: var(--color-primary-700);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Search Section */
+        .search {
+            padding: var(--space-12) 0;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .search__container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .search__title {
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            margin-bottom: var(--space-6);
+        }
+
+        .search__form {
+            display: flex;
+            gap: var(--space-3);
+            margin-bottom: var(--space-8);
+        }
+
+        .search__input {
+            flex: 1;
+            padding: var(--space-3) var(--space-4);
+            border: 2px solid var(--border-medium);
+            border-radius: var(--radius-lg);
+            font-size: var(--font-size-base);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            transition: border-color var(--transition-fast);
+        }
+
+        .search__input:focus {
+            outline: none;
+            border-color: var(--color-primary-500);
+            box-shadow: 0 0 0 3px rgb(59 130 246 / 0.1);
+        }
+
+        .search__button {
+            background: var(--color-primary-600);
+            color: white;
+            border: none;
+            padding: var(--space-3) var(--space-6);
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            cursor: pointer;
+            transition: background var(--transition-fast);
+        }
+
+        .search__button:hover {
+            background: var(--color-primary-700);
+        }
+
+        .filter-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-2);
+            justify-content: center;
+        }
+
+        .filter-tab {
+            padding: var(--space-2) var(--space-4);
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-xl);
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            transition: all var(--transition-fast);
+        }
+
+        .filter-tab:hover,
+        .filter-tab.active {
+            background: var(--color-primary-600);
+            color: white;
+            border-color: var(--color-primary-600);
+        }
+
+        /* Cards Grid */
+        .cards {
+            padding: var(--space-16) 0;
+        }
+
+        .cards__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: var(--space-6);
+        }
+
+        .card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            transition: all var(--transition-fast);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--color-primary-300);
+        }
+
+        .card__header {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-3);
+            margin-bottom: var(--space-4);
+        }
+
+        .card__icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .card__content {
+            flex: 1;
+        }
+
+        .card__title {
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            margin-bottom: var(--space-2);
+            line-height: var(--line-height-tight);
+        }
+
+        .card__subtitle {
+            color: var(--text-muted);
+            font-size: var(--font-size-sm);
+            margin-bottom: var(--space-4);
+        }
+
+        .card__meta {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            margin-top: auto;
+        }
+
+        .card__tag {
+            padding: var(--space-1) var(--space-3);
+            border-radius: var(--radius-xl);
+            font-size: var(--font-size-xs);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .card__status {
+            display: flex;
+            align-items: center;
+            gap: var(--space-1);
+            font-size: var(--font-size-xs);
+            font-weight: 500;
+        }
+
+        .card__status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        /* Status Colors */
+        .status--active .card__status-dot {
+            background: var(--color-success);
+        }
+
+        .status--progress .card__status-dot {
+            background: var(--color-warning);
+        }
+
+        .status--planned .card__status-dot {
+            background: var(--color-gray-400);
+        }
+
+        /* Subject Colors */
+        .subject--philosophie .card__icon {
+            background: var(--subject-philosophie);
+        }
+
+        .subject--philosophie .card__tag {
+            background: var(--subject-philosophie);
+            color: white;
+        }
+
+        .subject--erdkunde .card__icon {
+            background: var(--subject-erdkunde);
+        }
+
+        .subject--erdkunde .card__tag {
+            background: var(--subject-erdkunde);
+            color: white;
+        }
+
+        /* Add more subject colors as needed */
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-light);
+            padding: var(--space-12) 0 var(--space-8);
+            margin-top: auto;
+        }
+
+        .footer__content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+
+        .footer__section h3 {
+            font-weight: 700;
+            margin-bottom: var(--space-4);
+            color: var(--text-primary);
+        }
+
+        .footer__links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+        }
+
+        .footer__links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .footer__links a:hover {
+            color: var(--color-primary-600);
+        }
+
+        .footer__bottom {
+            padding-top: var(--space-8);
+            border-top: 1px solid var(--border-light);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: var(--font-size-sm);
+        }
+
+        /* Loading States */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid var(--border-light);
+            border-radius: 50%;
+            border-top-color: var(--color-primary-600);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero__title {
+                font-size: var(--font-size-3xl);
+            }
+
+            .search__form {
+                flex-direction: column;
+            }
+
+            .header__nav {
+                display: none;
+            }
+
+            .cards__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-tabs {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: var(--space-2);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 var(--space-3);
+            }
+
+            .hero {
+                padding: var(--space-12) 0 var(--space-8);
+            }
+
+            .card {
+                padding: var(--space-4);
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Focus styles */
+        .focus-visible {
+            outline: 2px solid var(--color-primary-600);
+            outline-offset: 2px;
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --border-light: #000000;
+                --border-medium: #000000;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main" class="skip-link">Zum Hauptinhalt springen</a>
+
+    <header class="header" role="banner">
+        <div class="header__container">
+            <a href="/" class="header__logo" aria-label="oberstufe.site Homepage">
+                oberstufe.site
+            </a>
+
+            <nav class="header__nav" role="navigation" aria-label="Hauptnavigation">
+                <a href="/videos" class="header__nav-link">Videos</a>
+                <a href="/powerpoints" class="header__nav-link">Präsentationen</a>
+                <a href="/add-website" class="header__nav-link">Website hinzufügen</a>
+                <button class="theme-toggle" aria-label="Farbschema wechseln" id="theme-toggle">
+                    <span aria-hidden="true">🌙</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main" id="main" role="main">
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero__title">
+                    Schülerprojekte & Präsentationen
+                </h1>
+                <p class="hero__subtitle">
+                    Entdecke innovative Projekte aus verschiedenen Fachbereichen. 
+                    Von KI-Experimenten bis hin zu kreativen Präsentationen.
+                </p>
+                <a href="#projects" class="hero__cta">
+                    <span>Projekte erkunden</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 12l-4-4h8l-4 4z"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <section class="search" id="search">
+            <div class="container">
+                <div class="search__container">
+                    <h2 class="search__title">Finde das richtige Projekt</h2>
+
+                    <form class="search__form" role="search" aria-label="Projekt suchen">
+                        <input 
+                            type="search" 
+                            class="search__input" 
+                            placeholder="Suche nach Thema, Fach oder Titel..." 
+                            aria-label="Suchbegriff eingeben"
+                            id="search-input"
+                        >
+                        <button type="submit" class="search__button" aria-label="Suche starten">
+                            Suchen
+                        </button>
+                    </form>
+
+                    <div class="filter-tabs" role="tablist" aria-label="Filter nach Fachbereich">
+                        <button class="filter-tab active" role="tab" aria-selected="true" data-filter="all">
+                            Alle Fächer
+                        </button>
+                        <button class="filter-tab" role="tab" data-filter="philosophie">Philosophie</button>
+                        <button class="filter-tab" role="tab" data-filter="erdkunde">Erdkunde</button>
+                        <button class="filter-tab" role="tab" data-filter="geschichte">Geschichte</button>
+                        <button class="filter-tab" role="tab" data-filter="physik">Physik</button>
+                        <button class="filter-tab" role="tab" data-filter="kunst">Kunst</button>
+                        <button class="filter-tab" role="tab" data-filter="sowi">SoWi</button>
+                        <button class="filter-tab" role="tab" data-filter="deutsch">Deutsch</button>
+                        <button class="filter-tab" role="tab" data-filter="sport">Sport</button>
+                        <button class="filter-tab" role="tab" data-filter="mathe">Mathe</button>
+                        <button class="filter-tab" role="tab" data-filter="chemie">Chemie</button>
+                        <button class="filter-tab" role="tab" data-filter="informatik">Informatik</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cards" id="projects">
+            <div class="container">
+                <div class="cards__grid" id="cards-container" role="region" aria-label="Projektübersicht">
+                    <!-- Cards werden dynamisch geladen -->
+                    <div class="loading" role="status" aria-label="Projekte werden geladen..."></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3>Über das Projekt</h3>
+                    <p>
+                        oberstufe.site ist eine Plattform für Schülerprojekte aus verschiedenen Fachbereichen. 
+                        Hier experimentieren wir mit neuen Technologien und teilen unsere Lernerfahrungen.
+                    </p>
+                </div>
+
+                <div class="footer__section">
+                    <h3>Navigation</h3>
+                    <ul class="footer__links">
+                        <li><a href="/videos">Videos</a></li>
+                        <li><a href="/powerpoints">Präsentationen</a></li>
+                        <li><a href="/add-website">Website hinzufügen</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__section">
+                    <h3>Kontakt</h3>
+                    <ul class="footer__links">
+                        <li><a href="mailto:oberstufesite@gmail.com">E-Mail senden</a></li>
+                        <li><a href="#feedback">Feedback geben</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p>&copy; 2025 oberstufe.site - Ein Schülerprojekt</p>
+                <p>Gehostet mit ❤️ auf Netlify</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+        // Modern JavaScript ES6+ Implementation
+        class OberstufeApp {
+            constructor() {
+                this.cards = [];
+                this.filteredCards = [];
+                this.currentFilter = 'all';
+                this.searchTerm = '';
+
+                this.init();
+            }
+
+            async init() {
+                await this.loadCards();
+                this.setupEventListeners();
+                this.setupThemeToggle();
+                this.displayCards();
+            }
+
+            async loadCards() {
+                try {
+                    // Show loading state
+                    this.showLoading(true);
+
+                    const response = await fetch('/data/cards.json');
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const data = await response.json();
+                    this.cards = Array.isArray(data) ? data : data.cards || [];
+                    this.filteredCards = [...this.cards];
+
+                } catch (error) {
+                    console.error('Error loading cards:', error);
+                    this.showError('Projekte konnten nicht geladen werden. Bitte versuche es später erneut.');
+                } finally {
+                    this.showLoading(false);
+                }
+            }
+
+            setupEventListeners() {
+                // Search functionality
+                const searchInput = document.getElementById('search-input');
+                const searchForm = searchInput?.closest('form');
+
+                if (searchInput) {
+                    let searchTimeout;
+                    searchInput.addEventListener('input', (e) => {
+                        clearTimeout(searchTimeout);
+                        searchTimeout = setTimeout(() => {
+                            this.handleSearch(e.target.value);
+                        }, 300);
+                    });
+                }
+
+                if (searchForm) {
+                    searchForm.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        this.handleSearch(searchInput.value);
+                    });
+                }
+
+                // Filter tabs
+                const filterTabs = document.querySelectorAll('.filter-tab');
+                filterTabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        this.handleFilterChange(tab.dataset.filter);
+                        this.updateActiveTab(tab);
+                    });
+                });
+
+                // Keyboard navigation for filter tabs
+                filterTabs.forEach((tab, index) => {
+                    tab.addEventListener('keydown', (e) => {
+                        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+                            e.preventDefault();
+                            const nextIndex = e.key === 'ArrowRight' 
+                                ? (index + 1) % filterTabs.length 
+                                : (index - 1 + filterTabs.length) % filterTabs.length;
+                            filterTabs[nextIndex].focus();
+                        }
+                    });
+                });
+            }
+
+            setupThemeToggle() {
+                const themeToggle = document.getElementById('theme-toggle');
+                const html = document.documentElement;
+
+                // Check for saved theme preference or default to light
+                const savedTheme = localStorage.getItem('theme') || 'light';
+                html.setAttribute('data-theme', savedTheme);
+                this.updateThemeToggleIcon(savedTheme);
+
+                if (themeToggle) {
+                    themeToggle.addEventListener('click', () => {
+                        const currentTheme = html.getAttribute('data-theme');
+                        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+                        html.setAttribute('data-theme', newTheme);
+                        localStorage.setItem('theme', newTheme);
+                        this.updateThemeToggleIcon(newTheme);
+
+                        // Announce theme change for screen readers
+                        this.announceToScreenReader(`Farbschema zu ${newTheme === 'light' ? 'Hell' : 'Dunkel'} gewechselt`);
+                    });
+                }
+            }
+
+            updateThemeToggleIcon(theme) {
+                const themeToggle = document.getElementById('theme-toggle');
+                if (themeToggle) {
+                    const icon = themeToggle.querySelector('span');
+                    if (icon) {
+                        icon.textContent = theme === 'light' ? '🌙' : '☀️';
+                    }
+                    themeToggle.setAttribute('aria-label', 
+                        `Zu ${theme === 'light' ? 'Dunkel' : 'Hell'} wechseln`
+                    );
+                }
+            }
+
+            handleSearch(term) {
+                this.searchTerm = term.toLowerCase().trim();
+                this.filterCards();
+                this.displayCards();
+
+                // Announce search results for accessibility
+                const resultCount = this.filteredCards.length;
+                this.announceToScreenReader(`${resultCount} Projekte gefunden`);
+            }
+
+            handleFilterChange(filter) {
+                this.currentFilter = filter;
+                this.filterCards();
+                this.displayCards();
+
+                // Announce filter change
+                const filterName = filter === 'all' ? 'Alle Fächer' : filter;
+                this.announceToScreenReader(`Filter auf ${filterName} gesetzt`);
+            }
+
+            updateActiveTab(activeTab) {
+                document.querySelectorAll('.filter-tab').forEach(tab => {
+                    tab.classList.remove('active');
+                    tab.setAttribute('aria-selected', 'false');
+                });
+
+                activeTab.classList.add('active');
+                activeTab.setAttribute('aria-selected', 'true');
+            }
+
+            filterCards() {
+                this.filteredCards = this.cards.filter(card => {
+                    const matchesFilter = this.currentFilter === 'all' || 
+                        card.tag?.toLowerCase() === this.currentFilter;
+
+                    const matchesSearch = !this.searchTerm || 
+                        card.title?.toLowerCase().includes(this.searchTerm) ||
+                        card.subtitle?.toLowerCase().includes(this.searchTerm) ||
+                        card.tag?.toLowerCase().includes(this.searchTerm);
+
+                    return matchesFilter && matchesSearch;
+                });
+            }
+
+            displayCards() {
+                const container = document.getElementById('cards-container');
+                if (!container) return;
+
+                if (this.filteredCards.length === 0) {
+                    container.innerHTML = `
+                        <div style="grid-column: 1 / -1; text-align: center; padding: 2rem;">
+                            <h3>Keine Projekte gefunden</h3>
+                            <p>Versuche es mit anderen Suchbegriffen oder Filtern.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                const cardsHTML = this.filteredCards.map(card => this.createCardHTML(card)).join('');
+                container.innerHTML = cardsHTML;
+
+                // Setup card click handlers
+                this.setupCardHandlers();
+            }
+
+            createCardHTML(card) {
+                const subjectClass = `subject--${card.tag?.toLowerCase() || 'default'}`;
+                const statusClass = `status--${card.status || 'active'}`;
+
+                const statusText = {
+                    'active': 'Aktiv',
+                    'progress': 'In Arbeit', 
+                    'planned': 'Geplant'
+                }[card.status] || 'Aktiv';
+
+                const subjectIcon = this.getSubjectIcon(card.tag);
+
+                return `
+                    <article class="card ${subjectClass} ${statusClass}" data-card-id="${card.id}">
+                        <div class="card__header">
+                            <div class="card__icon" aria-hidden="true">
+                                ${subjectIcon}
+                            </div>
+                            <div class="card__content">
+                                <h3 class="card__title">
+                                    <a href="${card.url}" class="card__link">
+                                        ${this.escapeHtml(card.title)}
+                                    </a>
+                                </h3>
+                                ${card.subtitle ? `<p class="card__subtitle">${this.escapeHtml(card.subtitle)}</p>` : ''}
+                            </div>
+                        </div>
+
+                        <div class="card__meta">
+                            <span class="card__tag ${subjectClass}">
+                                ${this.escapeHtml(card.tag)}
+                            </span>
+                            <div class="card__status">
+                                <span class="card__status-dot" aria-hidden="true"></span>
+                                <span class="sr-only">Status: </span>
+                                ${statusText}
+                            </div>
+                        </div>
+                    </article>
+                `;
+            }
+
+            getSubjectIcon(subject) {
+                const icons = {
+                    'philosophie': '🤔',
+                    'erdkunde': '🌍', 
+                    'geschichte': '📜',
+                    'physik': '⚡',
+                    'kunst': '🎨',
+                    'sowi': '⚖️',
+                    'deutsch': '📚',
+                    'sport': '⚽',
+                    'mathe': '📊',
+                    'chemie': '🧪',
+                    'informatik': '💻'
+                };
+
+                return icons[subject?.toLowerCase()] || '📄';
+            }
+
+            setupCardHandlers() {
+                const cards = document.querySelectorAll('.card');
+                cards.forEach(card => {
+                    // Add keyboard navigation
+                    card.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            const link = card.querySelector('.card__link');
+                            if (link) {
+                                link.click();
+                            }
+                        }
+                    });
+
+                    // Make cards focusable
+                    if (!card.hasAttribute('tabindex')) {
+                        card.setAttribute('tabindex', '0');
+                    }
+                });
+            }
+
+            showLoading(show) {
+                const container = document.getElementById('cards-container');
+                if (!container) return;
+
+                if (show) {
+                    container.innerHTML = `
+                        <div class="loading" role="status" aria-label="Projekte werden geladen..."></div>
+                    `;
+                } else {
+                    const loader = container.querySelector('.loading');
+                    if (loader && container.children.length === 1) {
+                        container.innerHTML = '';
+                    }
+                }
+            }
+
+            showError(message) {
+                const container = document.getElementById('cards-container');
+                if (!container) return;
+
+                container.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: var(--color-error);">
+                        <h3>Fehler beim Laden</h3>
+                        <p>${this.escapeHtml(message)}</p>
+                        <button onclick="location.reload()" style="margin-top: 1rem; padding: 0.5rem 1rem; background: var(--color-primary-600); color: white; border: none; border-radius: 0.5rem; cursor: pointer;">
+                            Seite neu laden
+                        </button>
+                    </div>
+                `;
+            }
+
+            escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text || '';
+                return div.innerHTML;
+            }
+
+            announceToScreenReader(message) {
+                const announcement = document.createElement('div');
+                announcement.setAttribute('aria-live', 'polite');
+                announcement.setAttribute('aria-atomic', 'true');
+                announcement.className = 'sr-only';
+                announcement.textContent = message;
+
+                document.body.appendChild(announcement);
+
+                setTimeout(() => {
+                    document.body.removeChild(announcement);
+                }, 1000);
+            }
+        }
+
+        // Initialize app when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                new OberstufeApp();
+            });
+        } else {
+            new OberstufeApp();
+        }
+
+        // Service Worker registration for PWA capabilities
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', async () => {
+                try {
+                    const registration = await navigator.serviceWorker.register('/sw.js');
+                    console.log('ServiceWorker registration successful');
+                } catch (error) {
+                    console.log('ServiceWorker registration failed: ', error);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

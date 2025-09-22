@@ -1,0 +1,44 @@
+{
+  "cards": [
+    {
+      "id": "example-1",
+      "title": "Beispielprojekt Philosophie",
+      "subtitle": "Eine Einführung in die Erkenntnistheorie",
+      "url": "https://example.com/philosophy",
+      "type": "website",
+      "tag": "philosophie",
+      "status": "active",
+      "priority": "high",
+      "description": "Ein umfassendes Projekt über die Grundlagen der Erkenntnistheorie und deren Anwendung in der modernen Philosophie.",
+      "keywords": ["Philosophie", "Erkenntnistheorie", "Kant", "Epistemologie"],
+      "author": "Max Mustermann",
+      "created_date": "2025-01-01T00:00:00.000Z",
+      "updated_date": "2025-09-22T00:00:00.000Z",
+      "visibility": "public",
+      "featured": true,
+      "image_url": "/assets/uploads/philosophy-preview.jpg"
+    },
+    {
+      "id": "example-2", 
+      "title": "Klimawandel in Deutschland",
+      "subtitle": "Regionale Auswirkungen und Anpassungsstrategien",
+      "url": "https://example.com/climate",
+      "type": "presentation",
+      "tag": "erdkunde",
+      "status": "progress",
+      "priority": "medium",
+      "description": "Eine detaillierte Analyse der regionalen Auswirkungen des Klimawandels in Deutschland.",
+      "keywords": ["Klimawandel", "Deutschland", "Erdkunde", "Umwelt"],
+      "author": "Anna Schmidt",
+      "created_date": "2025-02-15T00:00:00.000Z",
+      "updated_date": "2025-09-20T00:00:00.000Z",
+      "visibility": "public",
+      "featured": false
+    }
+  ],
+  "metadata": {
+    "version": "2.0",
+    "last_updated": "2025-09-22T16:00:00.000Z",
+    "total_count": 2
+  }
+}

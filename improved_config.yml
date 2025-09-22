@@ -1,0 +1,196 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Media Management
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+# Site Configuration  
+site_url: https://oberstufe.site
+display_url: https://oberstufe.site
+logo_url: https://oberstufe.site/assets/logo.png
+
+# Editorial Workflow
+publish_mode: editorial_workflow
+
+# Collections
+collections:
+  # Main Cards Collection
+  - name: "cards"
+    label: "Projekte"
+    label_singular: "Projekt"
+    description: "Verwalte alle Projekte und Websites"
+    files:
+      - file: "data/cards.json"
+        label: "Projekt-Datenbank"
+        name: "cardsjson"
+        description: "Zentrale Datenbank aller Projekte"
+        fields:
+          - label: "Projekte"
+            name: "cards"
+            widget: "list"
+            summary: "{{fields.title}} ({{fields.tag}}) - {{fields.status}}"
+            fields:
+              - { label: "ID", name: "id", widget: "string", hint: "Eindeutige Kennung (automatisch generiert)" }
+              - { label: "Titel", name: "title", widget: "string", required: true }
+              - { label: "Untertitel", name: "subtitle", widget: "text", required: false, hint: "Kurze Beschreibung des Projekts" }
+              - { label: "URL", name: "url", widget: "string", required: true, pattern: ["^https?://.*", "Bitte eine gültige URL eingeben"] }
+              - label: "Projekttyp"
+                name: "type"
+                widget: "select"
+                options: 
+                  - { label: "Website", value: "website" }
+                  - { label: "Präsentation", value: "presentation" }
+                  - { label: "Video", value: "video" }
+                  - { label: "Dokument", value: "document" }
+                default: "website"
+              - label: "Fachbereich"
+                name: "tag"
+                widget: "select"
+                options:
+                  - { label: "Philosophie", value: "philosophie" }
+                  - { label: "Erdkunde", value: "erdkunde" }
+                  - { label: "Geschichte", value: "geschichte" }
+                  - { label: "Physik", value: "physik" }
+                  - { label: "Kunst", value: "kunst" }
+                  - { label: "Sozialwissenschaften", value: "sowi" }
+                  - { label: "Deutsch", value: "deutsch" }
+                  - { label: "Sport", value: "sport" }
+                  - { label: "Mathematik", value: "mathe" }
+                  - { label: "Chemie", value: "chemie" }
+                  - { label: "Informatik", value: "informatik" }
+              - label: "Status"
+                name: "status"
+                widget: "select"
+                options:
+                  - { label: "Aktiv", value: "active" }
+                  - { label: "In Arbeit", value: "progress" }
+                  - { label: "Geplant", value: "planned" }
+                  - { label: "Archiviert", value: "archived" }
+                default: "progress"
+              - label: "Priorität"
+                name: "priority"
+                widget: "select"
+                options:
+                  - { label: "Hoch", value: "high" }
+                  - { label: "Mittel", value: "medium" }
+                  - { label: "Niedrig", value: "low" }
+                default: "medium"
+                required: false
+              - { label: "Vorschaubild", name: "image_url", widget: "image", required: false, hint: "Optimale Größe: 400x300px" }
+              - { label: "Beschreibung", name: "description", widget: "text", required: false, hint: "Ausführliche Projektbeschreibung für SEO" }
+              - label: "Schlagwörter"
+                name: "keywords"
+                widget: "list"
+                required: false
+                field: { label: "Schlagwort", name: "keyword", widget: "string" }
+                hint: "SEO-relevante Begriffe"
+              - { label: "Autor", name: "author", widget: "string", required: false }
+              - { label: "Erstellungsdatum", name: "created_date", widget: "datetime", required: false }
+              - { label: "Letzte Aktualisierung", name: "updated_date", widget: "datetime", required: false }
+              - label: "Sichtbarkeit"
+                name: "visibility"
+                widget: "select"
+                options:
+                  - { label: "Öffentlich", value: "public" }
+                  - { label: "Versteckt", value: "hidden" }
+                  - { label: "Entwurf", value: "draft" }
+                default: "public"
+              - label: "Featured"
+                name: "featured"
+                widget: "boolean"
+                default: false
+                hint: "Auf der Startseite hervorheben"
+
+  # Site Settings
+  - name: "settings"
+    label: "Einstellungen"
+    files:
+      - file: "data/site-settings.json"
+        label: "Seiteneinstellungen"
+        name: "site_settings"
+        fields:
+          - { label: "Seitentitel", name: "site_title", widget: "string", default: "oberstufe.site" }
+          - { label: "Beschreibung", name: "site_description", widget: "text" }
+          - { label: "URL", name: "site_url", widget: "string" }
+          - { label: "Logo", name: "logo", widget: "image", required: false }
+          - { label: "Favicon", name: "favicon", widget: "image", required: false }
+          - label: "Social Media"
+            name: "social_media"
+            widget: "object"
+            fields:
+              - { label: "Email", name: "email", widget: "string", required: false }
+              - { label: "GitHub", name: "github", widget: "string", required: false }
+              - { label: "Twitter", name: "twitter", widget: "string", required: false }
+          - label: "Analytics"
+            name: "analytics"
+            widget: "object"
+            fields:
+              - { label: "Google Analytics ID", name: "ga_id", widget: "string", required: false }
+              - { label: "Privacy-compliant", name: "privacy_mode", widget: "boolean", default: true }
+          - label: "SEO"
+            name: "seo"
+            widget: "object"
+            fields:
+              - { label: "Meta Keywords", name: "keywords", widget: "text" }
+              - { label: "Open Graph Image", name: "og_image", widget: "image", required: false }
+
+  # Navigation Management
+  - name: "navigation"
+    label: "Navigation"
+    files:
+      - file: "data/navigation.json"
+        label: "Hauptmenü"
+        name: "main_navigation"
+        fields:
+          - label: "Menüpunkte"
+            name: "menu_items"
+            widget: "list"
+            fields:
+              - { label: "Text", name: "text", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+              - { label: "Icon", name: "icon", widget: "string", required: false }
+              - { label: "Externe URL", name: "external", widget: "boolean", default: false }
+              - { label: "Reihenfolge", name: "order", widget: "number", default: 0 }
+
+  # FAQ/Help Section
+  - name: "faq"
+    label: "FAQ"
+    folder: "content/faq"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Frage", name: "question", widget: "string" }
+      - { label: "Antwort", name: "answer", widget: "markdown" }
+      - { label: "Kategorie", name: "category", widget: "select", options: ["Allgemein", "Technisch", "Projekte"] }
+      - { label: "Reihenfolge", name: "order", widget: "number", default: 0 }
+      - { label: "Veröffentlicht", name: "published", widget: "boolean", default: true }
+
+# Localization
+locale: 'de'
+
+# Editor Configuration
+editor:
+  preview: true
+
+# Slug Configuration  
+slug:
+  encoding: "unicode"
+  clean_accents: false
+  sanitize_replacement: "-"
+
+# Search Configuration
+search: true
+
+# Extension Configuration
+extensions:
+  - name: netlify-cms-widget-youtube
+    repo: https://unpkg.com/netlify-cms-widget-youtube
+  - name: netlify-cms-widget-color
+    repo: https://unpkg.com/netlify-cms-widget-color
+
+# Custom Preview Templates
+preview_templates:
+  - name: cards
+    template: card-preview.html
