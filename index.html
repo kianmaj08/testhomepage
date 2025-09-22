@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oberstufe.site</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Die zentrale Startseite unserer Projekte - Schülerprojekte aus verschiedenen Fachbereichen">
+    <meta name="keywords" content="Oberstufe, Schülerprojekte, Präsentationen, Bildung">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="oberstufe.site - Schülerprojekte">
+    <meta property="og:description" content="Zentrale Startseite für Schülerprojekte aus verschiedenen Fachbereichen">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://oberstufe.site">
+
+    <!-- Preload fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Glassmorphism Design System */
+        :root {
+            /* Glass Colors - Light Theme */
+            --bg-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --bg-secondary: rgba(255, 255, 255, 0.25);
+            --bg-tertiary: rgba(255, 255, 255, 0.1);
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --glass-shadow: rgba(31, 38, 135, 0.37);
+
+            /* Text Colors */
+            --text-primary: rgba(255, 255, 255, 0.95);
+            --text-secondary: rgba(255, 255, 255, 0.8);
+            --text-muted: rgba(255, 255, 255, 0.6);
+            --text-accent: rgba(255, 255, 255, 1);
+
+            /* Subject Colors with Glass Effect */
+            --philosophie: rgba(139, 92, 246, 0.6);
+            --erdkunde: rgba(16, 185, 129, 0.6);
+            --geschichte: rgba(245, 158, 11, 0.6);
+            --physik: rgba(55, 65, 81, 0.6);
+            --kunst: rgba(236, 72, 153, 0.6);
+            --sowi: rgba(139, 92, 246, 0.6);
+            --deutsch: rgba(239, 68, 68, 0.6);
+            --sport: rgba(59, 130, 246, 0.6);
+            --mathe: rgba(99, 102, 241, 0.6);
+            --chemie: rgba(5, 150, 105, 0.6);
+            --informatik: rgba(124, 58, 237, 0.6);
+
+            /* Status Colors */
+            --status-green: rgba(16, 185, 129, 0.8);
+            --status-yellow: rgba(245, 158, 11, 0.8);
+            --status-red: rgba(239, 68, 68, 0.8);
+
+            /* Spacing */
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+
+            /* Glass Properties */
+            --glass-blur: 20px;
+            --glass-opacity: 0.15;
+            --border-radius: 20px;
+            --border-radius-lg: 24px;
+
+            /* Animations */
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Dark Theme */
+        [data-theme="dark"] {
+            --bg-primary: linear-gradient(135deg, #1e3a8a 0%, #1f2937 100%);
+            --bg-secondary: rgba(17, 24, 39, 0.4);
+            --bg-tertiary: rgba(17, 24, 39, 0.2);
+            --glass-bg: rgba(17, 24, 39, 0.3);
+            --glass-border: rgba(75, 85, 99, 0.3);
+            --glass-shadow: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Base Styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--bg-primary);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Background animated particles */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(1deg); }
+            66% { transform: translateY(-10px) rotate(-1deg); }
+        }
+
+        /* Glass Container */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius);
+            box-shadow: 0 8px 32px var(--glass-shadow);
+        }
+
+        .glass-strong {
+            background: var(--bg-secondary);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 12px 40px var(--glass-shadow);
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: var(--space-4) 0;
+            margin-bottom: var(--space-8);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-4);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .glass {
+            padding: var(--space-3) var(--space-6);
+            margin: 0 var(--space-4);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-accent);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+            text-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-6);
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.8);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--text-accent);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-4);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: var(--space-16) 0;
+            margin-bottom: var(--space-12);
+        }
+
+        .hero .glass-strong {
+            padding: var(--space-12) var(--space-8);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: var(--space-6);
+            background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-8);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Search Section */
+        .search-section {
+            margin-bottom: var(--space-12);
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: var(--space-8);
+            text-align: center;
+        }
+
+        .search-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: var(--space-6);
+            color: var(--text-accent);
+        }
+
+        .search-box {
+            position: relative;
+            margin-bottom: var(--space-8);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: var(--space-4) var(--space-6);
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius);
+            color: var(--text-primary);
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .search-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        /* Filter Tags */
+        .filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-2);
+            justify-content: center;
+            margin-bottom: var(--space-8);
+        }
+
+        .filter-tag {
+            padding: var(--space-2) var(--space-4);
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+        }
+
+        .filter-tag:hover,
+        .filter-tag.active {
+            background: rgba(255, 255, 255, 0.3);
+            color: var(--text-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--space-8);
+            margin-bottom: var(--space-16);
+        }
+
+        .card {
+            position: relative;
+            padding: var(--space-6);
+            transition: var(--transition-slow);
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                var(--philosophie), 
+                var(--erdkunde), 
+                var(--kunst));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-4);
+            margin-bottom: var(--space-4);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .card-content {
+            flex: 1;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--space-2);
+            color: var(--text-accent);
+        }
+
+        .card-title a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .card-title a:hover {
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .card-subtitle {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-bottom: var(--space-4);
+            line-height: 1.5;
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            margin-top: auto;
+        }
+
+        .card-tag {
+            padding: var(--space-1) var(--space-3);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            backdrop-filter: blur(5px);
+        }
+
+        .card-status {
+            display: flex;
+            align-items: center;
+            gap: var(--space-1);
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        /* Subject Colors */
+        .philosophie .card-icon { background: var(--philosophie); }
+        .philosophie .card-tag { background: var(--philosophie); color: white; }
+
+        .erdkunde .card-icon { background: var(--erdkunde); }
+        .erdkunde .card-tag { background: var(--erdkunde); color: white; }
+
+        .geschichte .card-icon { background: var(--geschichte); }
+        .geschichte .card-tag { background: var(--geschichte); color: white; }
+
+        .physik .card-icon { background: var(--physik); }
+        .physik .card-tag { background: var(--physik); color: white; }
+
+        .kunst .card-icon { background: var(--kunst); }
+        .kunst .card-tag { background: var(--kunst); color: white; }
+
+        .sowi .card-icon { background: var(--sowi); }
+        .sowi .card-tag { background: var(--sowi); color: white; }
+
+        .deutsch .card-icon { background: var(--deutsch); }
+        .deutsch .card-tag { background: var(--deutsch); color: white; }
+
+        .sport .card-icon { background: var(--sport); }
+        .sport .card-tag { background: var(--sport); color: white; }
+
+        .mathe .card-icon { background: var(--mathe); }
+        .mathe .card-tag { background: var(--mathe); color: white; }
+
+        .chemie .card-icon { background: var(--chemie); }
+        .chemie .card-tag { background: var(--chemie); color: white; }
+
+        .informatik .card-icon { background: var(--informatik); }
+        .informatik .card-tag { background: var(--informatik); color: white; }
+
+        /* Status Colors */
+        .status-active .status-dot { background: var(--status-green); }
+        .status-progress .status-dot { background: var(--status-yellow); }
+        .status-planned .status-dot { background: var(--status-red); }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-bottom: var(--space-16);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-6);
+        }
+
+        .faq-item {
+            padding: var(--space-6);
+        }
+
+        .faq-question {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: var(--space-3);
+            color: var(--text-accent);
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .faq-answer a {
+            color: var(--text-accent);
+            text-decoration: none;
+        }
+
+        .faq-answer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            padding: var(--space-12) 0 var(--space-8);
+            text-align: center;
+            margin-top: var(--space-16);
+        }
+
+        .footer .glass {
+            padding: var(--space-8);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-4);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-6);
+            margin-bottom: var(--space-4);
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--text-accent);
+        }
+
+        /* Loading State */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: var(--space-12);
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-top: 3px solid rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-6);
+            }
+
+            .filter-container {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: var(--space-2);
+            }
+
+            .hero .glass-strong {
+                padding: var(--space-8) var(--space-4);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 var(--space-3);
+            }
+
+            .card {
+                padding: var(--space-4);
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            body::before {
+                animation: none;
+            }
+        }
+
+        /* Focus styles */
+        .card:focus,
+        .filter-tag:focus,
+        .search-input:focus {
+            outline: 2px solid rgba(255, 255, 255, 0.5);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="glass">
+                <a href="/" class="logo">oberstufe.site</a>
+            </div>
+
+            <nav class="nav-links">
+                <a href="/videos" class="nav-link">Videos</a>
+                <a href="/powerpoints" class="nav-link">Präsentationen</a>
+                <a href="/add-website" class="nav-link">Website hinzufügen</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Farbschema wechseln">
+                    <span id="themeIcon">🌙</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="glass-strong">
+                <h1>Die zentrale Startseite unserer Projekte</h1>
+                <p>Dieses Projekt entstand im Rahmen unserer schulischen Arbeiten. Wir experimentieren mit künstlicher Intelligenz, entwickeln Präsentationen und erstellen Websites.</p>
+            </div>
+        </section>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="glass search-container">
+                <h2 class="search-title">Projekte durchsuchen</h2>
+
+                <div class="search-box">
+                    <input 
+                        type="text" 
+                        class="search-input" 
+                        placeholder="Suche nach Thema, Fach oder Titel..."
+                        id="searchInput"
+                        aria-label="Projekte durchsuchen"
+                    >
+                </div>
+
+                <div class="filter-container">
+                    <button class="filter-tag active" data-filter="all">Alle Fächer</button>
+                    <button class="filter-tag" data-filter="philosophie">Philosophie</button>
+                    <button class="filter-tag" data-filter="erdkunde">Erdkunde</button>
+                    <button class="filter-tag" data-filter="geschichte">Geschichte</button>
+                    <button class="filter-tag" data-filter="physik">Physik</button>
+                    <button class="filter-tag" data-filter="kunst">Kunst</button>
+                    <button class="filter-tag" data-filter="sowi">SoWi</button>
+                    <button class="filter-tag" data-filter="deutsch">Deutsch</button>
+                    <button class="filter-tag" data-filter="sport">Sport</button>
+                    <button class="filter-tag" data-filter="mathe">Mathe</button>
+                    <button class="filter-tag" data-filter="chemie">Chemie</button>
+                    <button class="filter-tag" data-filter="informatik">Informatik</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cards Grid -->
+        <section class="cards-grid" id="cardsGrid">
+            <div class="loading">
+                <div class="spinner"></div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="glass-strong">
+                <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2rem; color: var(--text-accent);">
+                    Häufig gestellte Fragen
+                </h2>
+
+                <div class="faq-grid">
+                    <div class="glass faq-item">
+                        <div class="faq-question">Was ist oberstufe.site?</div>
+                        <div class="faq-answer">
+                            oberstufe.site ist unsere zentrale Startseite, die alle Schülerprojekte bündelt.
+                        </div>
+                    </div>
+
+                    <div class="glass faq-item">
+                        <div class="faq-question">Wie sind die Projekte organisiert?</div>
+                        <div class="faq-answer">
+                            Jedes Projekt hat ein eigenes Thema (z. B. Philosophie, Kunst, Geschichte) und wird deshalb auf einer eigenen Website präsentiert.
+                        </div>
+                    </div>
+
+                    <div class="glass faq-item">
+                        <div class="faq-question">Sind die Projekte fertiggestellt?</div>
+                        <div class="faq-answer">
+                            Nein – alle Projekte sind noch in Arbeit. Inhalte und Design können sich jederzeit ändern.
+                        </div>
+                    </div>
+
+                    <div class="glass faq-item">
+                        <div class="faq-question">Wie wird die Website gehostet?</div>
+                        <div class="faq-answer">
+                            Unsere Websites laufen über Netlify, die Domain wird über Squarespace verwaltet.
+                        </div>
+                    </div>
+
+                    <div class="glass faq-item">
+                        <div class="faq-question">Kann ich Feedback geben?</div>
+                        <div class="faq-answer">
+                            Ja, gerne per E‑Mail an <a href="mailto:oberstufesite@gmail.com">oberstufesite@gmail.com</a> oder über unser Feedback‑Formular.
+                        </div>
+                    </div>
+
+                    <div class="glass faq-item">
+                        <div class="faq-question">Was bedeuten die Farben und Status?</div>
+                        <div class="faq-answer">
+                            Farbige Schlagworte geben die Fachbereiche an. Die Status-Punkte zeigen den aktuellen Stand eines Projekts.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="glass">
+            <div class="footer-content">
+                <p>Ein Projekt von Schülern für Schüler</p>
+            </div>
+
+            <div class="footer-links">
+                <a href="mailto:oberstufesite@gmail.com">Kontakt</a>
+                <a href="/videos">Videos</a>
+                <a href="/powerpoints">Präsentationen</a>
+                <a href="/add-website">Mitmachen</a>
+            </div>
+
+            <div class="footer-content">
+                <p>&copy; 2025 oberstufe.site • Gehostet mit ❤️ auf Netlify</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        class OberstufeGlassApp {
+            constructor() {
+                this.cards = [];
+                this.filteredCards = [];
+                this.currentFilter = 'all';
+                this.searchTerm = '';
+
+                this.init();
+            }
+
+            async init() {
+                this.setupEventListeners();
+                this.setupThemeToggle();
+                await this.loadCards();
+                this.displayCards();
+            }
+
+            setupEventListeners() {
+                // Search functionality
+                const searchInput = document.getElementById('searchInput');
+                if (searchInput) {
+                    let searchTimeout;
+                    searchInput.addEventListener('input', (e) => {
+                        clearTimeout(searchTimeout);
+                        searchTimeout = setTimeout(() => {
+                            this.handleSearch(e.target.value);
+                        }, 300);
+                    });
+                }
+
+                // Filter functionality
+                const filterTags = document.querySelectorAll('.filter-tag');
+                filterTags.forEach(tag => {
+                    tag.addEventListener('click', () => {
+                        this.handleFilterChange(tag.dataset.filter);
+                        this.updateActiveFilter(tag);
+                    });
+                });
+            }
+
+            setupThemeToggle() {
+                const themeToggle = document.getElementById('themeToggle');
+                const themeIcon = document.getElementById('themeIcon');
+                const html = document.documentElement;
+
+                // Check for saved theme
+                const savedTheme = localStorage.getItem('theme') || 'light';
+                html.setAttribute('data-theme', savedTheme);
+                themeIcon.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+
+                if (themeToggle) {
+                    themeToggle.addEventListener('click', () => {
+                        const currentTheme = html.getAttribute('data-theme');
+                        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+                        html.setAttribute('data-theme', newTheme);
+                        localStorage.setItem('theme', newTheme);
+                        themeIcon.textContent = newTheme === 'light' ? '🌙' : '☀️';
+                    });
+                }
+            }
+
+            async loadCards() {
+                try {
+                    const response = await fetch('/data/cards.json');
+                    if (!response.ok) {
+                        throw new Error('Failed to load cards');
+                    }
+
+                    const data = await response.json();
+                    // Handle both array format and object format
+                    this.cards = Array.isArray(data) ? data : (data.cards || []);
+
+                    // If no cards loaded, create example data
+                    if (this.cards.length === 0) {
+                        this.cards = this.createExampleCards();
+                    }
+
+                    this.filteredCards = [...this.cards];
+                } catch (error) {
+                    console.error('Error loading cards:', error);
+                    // Create example data on error
+                    this.cards = this.createExampleCards();
+                    this.filteredCards = [...this.cards];
+                }
+            }
+
+            createExampleCards() {
+                return [
+                    {
+                        id: 'example-1',
+                        title: 'Philosophie der Erkenntnis',
+                        subtitle: 'Eine Einführung in die Erkenntnistheorie',
+                        url: '#',
+                        type: 'website',
+                        tag: 'philosophie',
+                        status: 'active'
+                    },
+                    {
+                        id: 'example-2',
+                        title: 'Klimawandel in Deutschland',
+                        subtitle: 'Regionale Auswirkungen und Strategien',
+                        url: '#',
+                        type: 'presentation',
+                        tag: 'erdkunde',
+                        status: 'progress'
+                    },
+                    {
+                        id: 'example-3',
+                        title: 'Digitale Kunst',
+                        subtitle: 'Moderne Kunstformen im digitalen Zeitalter',
+                        url: '#',
+                        type: 'website',
+                        tag: 'kunst',
+                        status: 'planned'
+                    }
+                ];
+            }
+
+            handleSearch(term) {
+                this.searchTerm = term.toLowerCase().trim();
+                this.filterAndDisplayCards();
+            }
+
+            handleFilterChange(filter) {
+                this.currentFilter = filter;
+                this.filterAndDisplayCards();
+            }
+
+            updateActiveFilter(activeTag) {
+                document.querySelectorAll('.filter-tag').forEach(tag => {
+                    tag.classList.remove('active');
+                });
+                activeTag.classList.add('active');
+            }
+
+            filterAndDisplayCards() {
+                this.filteredCards = this.cards.filter(card => {
+                    const matchesFilter = this.currentFilter === 'all' || 
+                        card.tag?.toLowerCase() === this.currentFilter;
+
+                    const matchesSearch = !this.searchTerm || 
+                        card.title?.toLowerCase().includes(this.searchTerm) ||
+                        card.subtitle?.toLowerCase().includes(this.searchTerm) ||
+                        card.tag?.toLowerCase().includes(this.searchTerm);
+
+                    return matchesFilter && matchesSearch;
+                });
+
+                this.displayCards();
+            }
+
+            displayCards() {
+                const container = document.getElementById('cardsGrid');
+                if (!container) return;
+
+                if (this.filteredCards.length === 0) {
+                    container.innerHTML = `
+                        <div class="glass" style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+                            <h3 style="color: var(--text-accent); margin-bottom: 1rem;">Keine Projekte gefunden</h3>
+                            <p style="color: var(--text-secondary);">Versuche es mit anderen Suchbegriffen oder Filtern.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                const cardsHTML = this.filteredCards.map(card => this.createCardHTML(card)).join('');
+                container.innerHTML = cardsHTML;
+
+                // Add click handlers for cards
+                this.setupCardHandlers();
+            }
+
+            createCardHTML(card) {
+                const subjectClass = card.tag?.toLowerCase() || 'default';
+                const statusClass = `status-${card.status || 'active'}`;
+
+                const statusText = {
+                    'active': 'Aktiv',
+                    'progress': 'In Arbeit',
+                    'planned': 'Geplant'
+                }[card.status] || 'Aktiv';
+
+                const subjectIcon = this.getSubjectIcon(card.tag);
+
+                return `
+                    <article class="glass card ${subjectClass}" data-card-id="${card.id}" tabindex="0">
+                        <div class="card-header">
+                            <div class="card-icon" aria-hidden="true">
+                                ${subjectIcon}
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">
+                                    <a href="${card.url || '#'}">${this.escapeHtml(card.title)}</a>
+                                </h3>
+                                ${card.subtitle ? `<p class="card-subtitle">${this.escapeHtml(card.subtitle)}</p>` : ''}
+                            </div>
+                        </div>
+
+                        <div class="card-meta">
+                            <span class="card-tag ${subjectClass}">
+                                ${this.escapeHtml(card.tag)}
+                            </span>
+                            <div class="card-status ${statusClass}">
+                                <span class="status-dot"></span>
+                                ${statusText}
+                            </div>
+                        </div>
+                    </article>
+                `;
+            }
+
+            getSubjectIcon(subject) {
+                const icons = {
+                    'philosophie': '🤔',
+                    'erdkunde': '🌍',
+                    'geschichte': '📜',
+                    'physik': '⚡',
+                    'kunst': '🎨',
+                    'sowi': '⚖️',
+                    'deutsch': '📚',
+                    'sport': '⚽',
+                    'mathe': '📊',
+                    'chemie': '🧪',
+                    'informatik': '💻'
+                };
+
+                return icons[subject?.toLowerCase()] || '📄';
+            }
+
+            setupCardHandlers() {
+                const cards = document.querySelectorAll('.card');
+                cards.forEach(card => {
+                    card.addEventListener('click', () => {
+                        const link = card.querySelector('a');
+                        if (link && link.href !== '#') {
+                            window.location.href = link.href;
+                        }
+                    });
+
+                    card.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            card.click();
+                        }
+                    });
+                });
+            }
+
+            escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text || '';
+                return div.innerHTML;
+            }
+        }
+
+        // Initialize app when DOM is loaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                new OberstufeGlassApp();
+            });
+        } else {
+            new OberstufeGlassApp();
+        }
+
+        // Service Worker registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', async () => {
+                try {
+                    await navigator.serviceWorker.register('/sw.js');
+                    console.log('ServiceWorker registered successfully');
+                } catch (error) {
+                    console.log('ServiceWorker registration failed:', error);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
