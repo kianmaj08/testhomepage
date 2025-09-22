@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oberstufe.site</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Die zentrale Startseite unserer Projekte - Schülerprojekte aus verschiedenen Fachbereichen">
+    <meta name="keywords" content="Oberstufe, Schülerprojekte, Präsentationen, Bildung">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="oberstufe.site - Schülerprojekte">
+    <meta property="og:description" content="Zentrale Startseite für Schülerprojekte aus verschiedenen Fachbereichen">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://oberstufe.site">
+
+    <!-- Apple-specific meta tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="oberstufe.site">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&family=SF+Pro+Text:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Apple iOS Design System */
+        :root {
+            /* Apple Colors - Light Theme */
+            --background-primary: #ffffff;
+            --background-secondary: #f2f2f7;
+            --background-tertiary: #ffffff;
+            --background-grouped: #f2f2f7;
+
+            /* Text Colors */
+            --text-primary: #000000;
+            --text-secondary: #3c3c43;
+            --text-tertiary: #3c3c4399;
+            --text-quaternary: #3c3c4366;
+            --text-accent: #007aff;
+
+            /* iOS System Colors */
+            --blue: #007aff;
+            --green: #34c759;
+            --indigo: #5856d6;
+            --orange: #ff9500;
+            --pink: #ff2d92;
+            --purple: #af52de;
+            --red: #ff3b30;
+            --teal: #5ac8fa;
+            --yellow: #ffcc00;
+
+            /* Subject Colors (iOS Style) */
+            --philosophie: #af52de;
+            --erdkunde: #34c759;
+            --geschichte: #ff9500;
+            --physik: #3c3c43;
+            --kunst: #ff2d92;
+            --sowi: #5856d6;
+            --deutsch: #ff3b30;
+            --sport: #007aff;
+            --mathe: #5856d6;
+            --chemie: #34c759;
+            --informatik: #af52de;
+
+            /* Glass Effect */
+            --glass-background: rgba(255, 255, 255, 0.8);
+            --glass-border: rgba(0, 0, 0, 0.1);
+            --glass-shadow: rgba(0, 0, 0, 0.1);
+
+            /* Spacing (iOS Guidelines) */
+            --spacing-2: 2px;
+            --spacing-4: 4px;
+            --spacing-8: 8px;
+            --spacing-12: 12px;
+            --spacing-16: 16px;
+            --spacing-20: 20px;
+            --spacing-24: 24px;
+            --spacing-32: 32px;
+            --spacing-40: 40px;
+            --spacing-48: 48px;
+            --spacing-64: 64px;
+            --spacing-80: 80px;
+
+            /* Border Radius (iOS Style) */
+            --radius-small: 8px;
+            --radius-medium: 12px;
+            --radius-large: 16px;
+            --radius-xl: 20px;
+            --radius-card: 16px;
+
+            /* Typography (SF Pro) */
+            --font-family-display: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-family-text: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+            /* Font Sizes (iOS Typography Scale) */
+            --font-size-caption2: 11px;
+            --font-size-caption1: 12px;
+            --font-size-footnote: 13px;
+            --font-size-subheadline: 15px;
+            --font-size-callout: 16px;
+            --font-size-body: 17px;
+            --font-size-headline: 17px;
+            --font-size-title3: 20px;
+            --font-size-title2: 22px;
+            --font-size-title1: 28px;
+            --font-size-large-title: 34px;
+
+            /* Line Heights */
+            --line-height-tight: 1.2;
+            --line-height-normal: 1.4;
+            --line-height-relaxed: 1.6;
+
+            /* Shadows (iOS Style) */
+            --shadow-small: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-large: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+            /* Transitions (iOS Timing) */
+            --transition-fast: 0.2s ease-out;
+            --transition-normal: 0.3s ease-out;
+            --transition-slow: 0.5s ease-out;
+            --spring-transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Dark Mode */
+        [data-theme="dark"] {
+            --background-primary: #000000;
+            --background-secondary: #1c1c1e;
+            --background-tertiary: #2c2c2e;
+            --background-grouped: #000000;
+
+            --text-primary: #ffffff;
+            --text-secondary: #ebebf5;
+            --text-tertiary: #ebebf599;
+            --text-quaternary: #ebebf566;
+
+            --glass-background: rgba(28, 28, 30, 0.8);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-shadow: rgba(0, 0, 0, 0.3);
+        }
+
+        /* Base Styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: var(--font-family-text);
+            background-color: var(--background-primary);
+            color: var(--text-primary);
+            line-height: var(--line-height-normal);
+            font-size: var(--font-size-body);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        /* Liquid Glass Effects */
+        .liquid-glass {
+            background: var(--glass-background);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-card);
+        }
+
+        .liquid-glass-strong {
+            background: var(--glass-background);
+            backdrop-filter: blur(30px) saturate(200%);
+            -webkit-backdrop-filter: blur(30px) saturate(200%);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-large);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: var(--spacing-16) 0;
+            background: var(--glass-background);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-20);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-family-display);
+            font-size: var(--font-size-title2);
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            transition: var(--transition-fast);
+        }
+
+        .logo:hover {
+            color: var(--text-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-32);
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: var(--font-size-body);
+            transition: var(--transition-fast);
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--text-accent);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--background-tertiary);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            font-size: 16px;
+        }
+
+        .theme-toggle:hover {
+            background: var(--background-secondary);
+            transform: scale(1.05);
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.95);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-20);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: var(--spacing-80) 0 var(--spacing-64);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: var(--font-family-display);
+            font-size: clamp(var(--font-size-title1), 4vw, var(--font-size-large-title));
+            font-weight: 600;
+            line-height: var(--line-height-tight);
+            margin-bottom: var(--spacing-20);
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+        }
+
+        .hero p {
+            font-size: var(--font-size-title3);
+            color: var(--text-secondary);
+            line-height: var(--line-height-relaxed);
+            margin-bottom: var(--spacing-40);
+            font-weight: 400;
+        }
+
+        /* Search Section */
+        .search-section {
+            margin-bottom: var(--spacing-80);
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .search-title {
+            font-family: var(--font-family-display);
+            font-size: var(--font-size-title2);
+            font-weight: 600;
+            margin-bottom: var(--spacing-32);
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+        }
+
+        .search-box {
+            margin-bottom: var(--spacing-32);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: var(--spacing-16) var(--spacing-20);
+            background: var(--background-tertiary);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-medium);
+            color: var(--text-primary);
+            font-size: var(--font-size-body);
+            font-family: var(--font-family-text);
+            transition: all var(--transition-fast);
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: var(--text-accent);
+            box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+        }
+
+        .search-input::placeholder {
+            color: var(--text-tertiary);
+        }
+
+        /* Filter Pills */
+        .filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-8);
+            justify-content: center;
+        }
+
+        .filter-pill {
+            padding: var(--spacing-8) var(--spacing-16);
+            background: var(--background-secondary);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: var(--font-size-footnote);
+            font-weight: 500;
+            transition: all var(--transition-fast);
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .filter-pill:hover {
+            background: var(--background-tertiary);
+            color: var(--text-primary);
+        }
+
+        .filter-pill.active {
+            background: var(--text-accent);
+            color: white;
+            border-color: var(--text-accent);
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--spacing-24);
+            margin-bottom: var(--spacing-80);
+        }
+
+        .card {
+            padding: var(--spacing-24);
+            transition: all var(--transition-normal);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-large);
+        }
+
+        .card:active {
+            transform: translateY(0);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-16);
+            margin-bottom: var(--spacing-16);
+        }
+
+        .card-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-small);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-title3);
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .card-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .card-title {
+            font-family: var(--font-family-display);
+            font-size: var(--font-size-headline);
+            font-weight: 600;
+            margin-bottom: var(--spacing-4);
+            color: var(--text-primary);
+            line-height: var(--line-height-tight);
+        }
+
+        .card-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .card-subtitle {
+            color: var(--text-secondary);
+            font-size: var(--font-size-footnote);
+            line-height: var(--line-height-normal);
+            margin-bottom: var(--spacing-16);
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-12);
+        }
+
+        .card-tag {
+            padding: var(--spacing-4) var(--spacing-8);
+            border-radius: 6px;
+            font-size: var(--font-size-caption1);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: white;
+        }
+
+        .card-status {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-4);
+            color: var(--text-tertiary);
+            font-size: var(--font-size-caption1);
+            font-weight: 500;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        /* Subject Colors */
+        .philosophie .card-icon { background: var(--philosophie); }
+        .philosophie .card-tag { background: var(--philosophie); }
+
+        .erdkunde .card-icon { background: var(--erdkunde); }
+        .erdkunde .card-tag { background: var(--erdkunde); }
+
+        .geschichte .card-icon { background: var(--geschichte); }
+        .geschichte .card-tag { background: var(--geschichte); }
+
+        .physik .card-icon { background: var(--physik); }
+        .physik .card-tag { background: var(--physik); }
+
+        .kunst .card-icon { background: var(--kunst); }
+        .kunst .card-tag { background: var(--kunst); }
+
+        .sowi .card-icon { background: var(--sowi); }
+        .sowi .card-tag { background: var(--sowi); }
+
+        .deutsch .card-icon { background: var(--deutsch); }
+        .deutsch .card-tag { background: var(--deutsch); }
+
+        .sport .card-icon { background: var(--sport); }
+        .sport .card-tag { background: var(--sport); }
+
+        .mathe .card-icon { background: var(--mathe); }
+        .mathe .card-tag { background: var(--mathe); }
+
+        .chemie .card-icon { background: var(--chemie); }
+        .chemie .card-tag { background: var(--chemie); }
+
+        .informatik .card-icon { background: var(--informatik); }
+        .informatik .card-tag { background: var(--informatik); }
+
+        /* Status Colors */
+        .status-active .status-dot { background: var(--green); }
+        .status-progress .status-dot { background: var(--orange); }
+        .status-planned .status-dot { background: var(--text-tertiary); }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-bottom: var(--spacing-80);
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: var(--spacing-48);
+        }
+
+        .faq-title {
+            font-family: var(--font-family-display);
+            font-size: var(--font-size-title1);
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-20);
+        }
+
+        .faq-item {
+            padding: var(--spacing-24);
+        }
+
+        .faq-question {
+            font-family: var(--font-family-display);
+            font-size: var(--font-size-headline);
+            font-weight: 600;
+            margin-bottom: var(--spacing-12);
+            color: var(--text-primary);
+            line-height: var(--line-height-tight);
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+            line-height: var(--line-height-relaxed);
+            font-size: var(--font-size-subheadline);
+        }
+
+        .faq-answer a {
+            color: var(--text-accent);
+            text-decoration: none;
+        }
+
+        .faq-answer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            padding: var(--spacing-64) 0 var(--spacing-48);
+            border-top: 1px solid var(--glass-border);
+            background: var(--background-secondary);
+        }
+
+        .footer-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-20);
+            font-size: var(--font-size-subheadline);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-32);
+            margin-bottom: var(--spacing-20);
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: var(--font-size-subheadline);
+            transition: var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: var(--text-accent);
+        }
+
+        .footer-copyright {
+            color: var(--text-tertiary);
+            font-size: var(--font-size-footnote);
+        }
+
+        /* Loading State */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: var(--spacing-64);
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--text-tertiary);
+            border-top: 2px solid var(--text-accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: var(--spacing-64) var(--spacing-20);
+            grid-column: 1 / -1;
+        }
+
+        .empty-state h3 {
+            font-family: var(--font-family-display);
+            font-size: var(--font-size-title3);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-8);
+        }
+
+        .empty-state p {
+            color: var(--text-secondary);
+            font-size: var(--font-size-subheadline);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 var(--spacing-16);
+            }
+
+            .container {
+                padding: 0 var(--spacing-16);
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: var(--spacing-48) 0 var(--spacing-40);
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-16);
+            }
+
+            .filter-container {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: var(--spacing-8);
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-16);
+            }
+
+            .footer-links {
+                gap: var(--spacing-20);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-content {
+                padding: 0 var(--spacing-12);
+            }
+
+            .container {
+                padding: 0 var(--spacing-12);
+            }
+
+            .card {
+                padding: var(--spacing-20);
+            }
+
+            .faq-item {
+                padding: var(--spacing-20);
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus Styles */
+        .card:focus,
+        .filter-pill:focus,
+        .search-input:focus,
+        .theme-toggle:focus {
+            outline: 2px solid var(--text-accent);
+            outline-offset: 2px;
+        }
+
+        /* High Contrast Support */
+        @media (prefers-contrast: high) {
+            :root {
+                --glass-border: rgba(0, 0, 0, 0.3);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">oberstufe.site</a>
+
+            <nav class="nav-links">
+                <a href="/videos" class="nav-link">Videos</a>
+                <a href="/powerpoints" class="nav-link">Präsentationen</a>
+                <a href="/add-website" class="nav-link">Website hinzufügen</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Farbschema wechseln">
+                    <span id="themeIcon">🌙</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Die zentrale Startseite unserer Projekte</h1>
+                <p>Wir experimentieren mit künstlicher Intelligenz, entwickeln Präsentationen und erstellen Websites im Rahmen unserer schulischen Arbeiten.</p>
+            </div>
+        </section>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="liquid-glass search-container">
+                <h2 class="search-title">Projekte durchsuchen</h2>
+
+                <div class="search-box">
+                    <input 
+                        type="text" 
+                        class="search-input" 
+                        placeholder="Suche nach Thema, Fach oder Titel..."
+                        id="searchInput"
+                        aria-label="Projekte durchsuchen"
+                    >
+                </div>
+
+                <div class="filter-container">
+                    <button class="filter-pill active" data-filter="all">Alle Fächer</button>
+                    <button class="filter-pill" data-filter="philosophie">Philosophie</button>
+                    <button class="filter-pill" data-filter="erdkunde">Erdkunde</button>
+                    <button class="filter-pill" data-filter="geschichte">Geschichte</button>
+                    <button class="filter-pill" data-filter="physik">Physik</button>
+                    <button class="filter-pill" data-filter="kunst">Kunst</button>
+                    <button class="filter-pill" data-filter="sowi">SoWi</button>
+                    <button class="filter-pill" data-filter="deutsch">Deutsch</button>
+                    <button class="filter-pill" data-filter="sport">Sport</button>
+                    <button class="filter-pill" data-filter="mathe">Mathe</button>
+                    <button class="filter-pill" data-filter="chemie">Chemie</button>
+                    <button class="filter-pill" data-filter="informatik">Informatik</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cards Grid -->
+        <section class="cards-grid" id="cardsGrid">
+            <div class="loading">
+                <div class="spinner"></div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="faq-header">
+                <h2 class="faq-title">Häufig gestellte Fragen</h2>
+            </div>
+
+            <div class="faq-grid">
+                <div class="liquid-glass faq-item">
+                    <div class="faq-question">Was ist oberstufe.site?</div>
+                    <div class="faq-answer">
+                        oberstufe.site ist unsere zentrale Startseite, die alle Schülerprojekte bündelt.
+                    </div>
+                </div>
+
+                <div class="liquid-glass faq-item">
+                    <div class="faq-question">Wie sind die Projekte organisiert?</div>
+                    <div class="faq-answer">
+                        Jedes Projekt hat ein eigenes Thema (z. B. Philosophie, Kunst, Geschichte) und wird deshalb auf einer eigenen Website präsentiert.
+                    </div>
+                </div>
+
+                <div class="liquid-glass faq-item">
+                    <div class="faq-question">Sind die Projekte fertiggestellt?</div>
+                    <div class="faq-answer">
+                        Nein – alle Projekte sind noch in Arbeit. Inhalte und Design können sich jederzeit ändern.
+                    </div>
+                </div>
+
+                <div class="liquid-glass faq-item">
+                    <div class="faq-question">Wie wird die Website gehostet?</div>
+                    <div class="faq-answer">
+                        Unsere Websites laufen über Netlify, die Domain wird über Squarespace verwaltet.
+                    </div>
+                </div>
+
+                <div class="liquid-glass faq-item">
+                    <div class="faq-question">Kann ich Feedback geben?</div>
+                    <div class="faq-answer">
+                        Ja, gerne per E‑Mail an <a href="mailto:oberstufesite@gmail.com">oberstufesite@gmail.com</a> oder über unser Feedback‑Formular.
+                    </div>
+                </div>
+
+                <div class="liquid-glass faq-item">
+                    <div class="faq-question">Was bedeuten die Farben und Status?</div>
+                    <div class="faq-answer">
+                        Farbige Schlagworte geben die Fachbereiche an. Die Status-Punkte zeigen den aktuellen Stand eines Projekts.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    Ein Projekt von Schülern für Schüler
+                </div>
+
+                <div class="footer-links">
+                    <a href="mailto:oberstufesite@gmail.com">Kontakt</a>
+                    <a href="/videos">Videos</a>
+                    <a href="/powerpoints">Präsentationen</a>
+                    <a href="/add-website">Mitmachen</a>
+                </div>
+
+                <div class="footer-copyright">
+                    &copy; 2025 oberstufe.site • Gehostet mit ❤️ auf Netlify
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        class AppleCleanApp {
+            constructor() {
+                this.cards = [];
+                this.filteredCards = [];
+                this.currentFilter = 'all';
+                this.searchTerm = '';
+
+                this.init();
+            }
+
+            async init() {
+                this.setupEventListeners();
+                this.setupThemeToggle();
+                await this.loadCards();
+                this.displayCards();
+            }
+
+            setupEventListeners() {
+                // Search functionality with iOS-style debouncing
+                const searchInput = document.getElementById('searchInput');
+                if (searchInput) {
+                    let searchTimeout;
+                    searchInput.addEventListener('input', (e) => {
+                        clearTimeout(searchTimeout);
+                        searchTimeout = setTimeout(() => {
+                            this.handleSearch(e.target.value);
+                        }, 300);
+                    });
+                }
+
+                // Filter functionality
+                const filterPills = document.querySelectorAll('.filter-pill');
+                filterPills.forEach(pill => {
+                    pill.addEventListener('click', () => {
+                        this.handleFilterChange(pill.dataset.filter);
+                        this.updateActiveFilter(pill);
+                    });
+                });
+            }
+
+            setupThemeToggle() {
+                const themeToggle = document.getElementById('themeToggle');
+                const themeIcon = document.getElementById('themeIcon');
+                const html = document.documentElement;
+
+                // Check for saved theme or system preference
+                const savedTheme = localStorage.getItem('theme') || 
+                    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+                html.setAttribute('data-theme', savedTheme);
+                themeIcon.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+
+                if (themeToggle) {
+                    themeToggle.addEventListener('click', () => {
+                        const currentTheme = html.getAttribute('data-theme');
+                        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+                        html.setAttribute('data-theme', newTheme);
+                        localStorage.setItem('theme', newTheme);
+                        themeIcon.textContent = newTheme === 'light' ? '🌙' : '☀️';
+
+                        // iOS-style haptic feedback simulation
+                        if (navigator.vibrate) {
+                            navigator.vibrate(10);
+                        }
+                    });
+                }
+            }
+
+            async loadCards() {
+                try {
+                    const response = await fetch('/data/cards.json');
+                    if (!response.ok) {
+                        throw new Error('Failed to load cards');
+                    }
+
+                    const data = await response.json();
+                    this.cards = Array.isArray(data) ? data : (data.cards || []);
+
+                    // Create example data if none loaded
+                    if (this.cards.length === 0) {
+                        this.cards = this.createExampleCards();
+                    }
+
+                    this.filteredCards = [...this.cards];
+                } catch (error) {
+                    console.error('Error loading cards:', error);
+                    this.cards = this.createExampleCards();
+                    this.filteredCards = [...this.cards];
+                }
+            }
+
+            createExampleCards() {
+                return [
+                    {
+                        id: 'example-1',
+                        title: 'Philosophie der Erkenntnis',
+                        subtitle: 'Eine systematische Einführung in die Erkenntnistheorie und ihre praktischen Anwendungen',
+                        url: '#',
+                        type: 'website',
+                        tag: 'philosophie',
+                        status: 'active'
+                    },
+                    {
+                        id: 'example-2',
+                        title: 'Klimawandel in Deutschland',
+                        subtitle: 'Analyse regionaler Auswirkungen und nachhaltiger Anpassungsstrategien',
+                        url: '#',
+                        type: 'presentation',
+                        tag: 'erdkunde',
+                        status: 'progress'
+                    },
+                    {
+                        id: 'example-3',
+                        title: 'Digitale Kunstformen',
+                        subtitle: 'Moderne Kunstbewegungen im digitalen Zeitalter und ihre gesellschaftlichen Einflüsse',
+                        url: '#',
+                        type: 'website',
+                        tag: 'kunst',
+                        status: 'planned'
+                    },
+                    {
+                        id: 'example-4',
+                        title: 'Algorithmus und Ethik',
+                        subtitle: 'Ethische Herausforderungen in der modernen Informatik und KI-Entwicklung',
+                        url: '#',
+                        type: 'presentation',
+                        tag: 'informatik',
+                        status: 'active'
+                    }
+                ];
+            }
+
+            handleSearch(term) {
+                this.searchTerm = term.toLowerCase().trim();
+                this.filterAndDisplayCards();
+            }
+
+            handleFilterChange(filter) {
+                this.currentFilter = filter;
+                this.filterAndDisplayCards();
+            }
+
+            updateActiveFilter(activePill) {
+                document.querySelectorAll('.filter-pill').forEach(pill => {
+                    pill.classList.remove('active');
+                });
+                activePill.classList.add('active');
+            }
+
+            filterAndDisplayCards() {
+                this.filteredCards = this.cards.filter(card => {
+                    const matchesFilter = this.currentFilter === 'all' || 
+                        card.tag?.toLowerCase() === this.currentFilter;
+
+                    const matchesSearch = !this.searchTerm || 
+                        card.title?.toLowerCase().includes(this.searchTerm) ||
+                        card.subtitle?.toLowerCase().includes(this.searchTerm) ||
+                        card.tag?.toLowerCase().includes(this.searchTerm);
+
+                    return matchesFilter && matchesSearch;
+                });
+
+                this.displayCards();
+            }
+
+            displayCards() {
+                const container = document.getElementById('cardsGrid');
+                if (!container) return;
+
+                if (this.filteredCards.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <h3>Keine Projekte gefunden</h3>
+                            <p>Versuche es mit anderen Suchbegriffen oder Filtern.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                const cardsHTML = this.filteredCards.map(card => this.createCardHTML(card)).join('');
+                container.innerHTML = cardsHTML;
+
+                this.setupCardHandlers();
+            }
+
+            createCardHTML(card) {
+                const subjectClass = card.tag?.toLowerCase() || 'default';
+                const statusClass = `status-${card.status || 'active'}`;
+
+                const statusText = {
+                    'active': 'Aktiv',
+                    'progress': 'In Arbeit',
+                    'planned': 'Geplant'
+                }[card.status] || 'Aktiv';
+
+                const subjectIcon = this.getSubjectIcon(card.tag);
+
+                return `
+                    <article class="liquid-glass card ${subjectClass}" data-card-id="${card.id}" tabindex="0">
+                        <div class="card-header">
+                            <div class="card-icon" aria-hidden="true">
+                                ${subjectIcon}
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">
+                                    <a href="${card.url || '#'}">${this.escapeHtml(card.title)}</a>
+                                </h3>
+                                ${card.subtitle ? `<p class="card-subtitle">${this.escapeHtml(card.subtitle)}</p>` : ''}
+                            </div>
+                        </div>
+
+                        <div class="card-meta">
+                            <span class="card-tag ${subjectClass}">
+                                ${this.escapeHtml(card.tag)}
+                            </span>
+                            <div class="card-status ${statusClass}">
+                                <span class="status-dot"></span>
+                                ${statusText}
+                            </div>
+                        </div>
+                    </article>
+                `;
+            }
+
+            getSubjectIcon(subject) {
+                const icons = {
+                    'philosophie': '🤔',
+                    'erdkunde': '🌍',
+                    'geschichte': '📜',
+                    'physik': '⚡',
+                    'kunst': '🎨',
+                    'sowi': '⚖️',
+                    'deutsch': '📚',
+                    'sport': '⚽',
+                    'mathe': '📊',
+                    'chemie': '🧪',
+                    'informatik': '💻'
+                };
+
+                return icons[subject?.toLowerCase()] || '📄';
+            }
+
+            setupCardHandlers() {
+                const cards = document.querySelectorAll('.card');
+                cards.forEach(card => {
+                    // iOS-style touch interactions
+                    card.addEventListener('click', () => {
+                        const link = card.querySelector('a');
+                        if (link && link.href !== '#') {
+                            // Add iOS-style navigation animation
+                            card.style.transform = 'scale(0.98)';
+                            setTimeout(() => {
+                                window.location.href = link.href;
+                            }, 150);
+                        }
+                    });
+
+                    card.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            card.click();
+                        }
+                    });
+
+                    // iOS-style press feedback
+                    card.addEventListener('touchstart', () => {
+                        card.style.transform = 'scale(0.98)';
+                    });
+
+                    card.addEventListener('touchend', () => {
+                        card.style.transform = '';
+                    });
+
+                    card.addEventListener('touchcancel', () => {
+                        card.style.transform = '';
+                    });
+                });
+            }
+
+            escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text || '';
+                return div.innerHTML;
+            }
+        }
+
+        // Initialize app
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                new AppleCleanApp();
+            });
+        } else {
+            new AppleCleanApp();
+        }
+
+        // iOS-style service worker registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', async () => {
+                try {
+                    await navigator.serviceWorker.register('/sw.js');
+                    console.log('ServiceWorker registered successfully');
+                } catch (error) {
+                    console.log('ServiceWorker registration failed:', error);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
